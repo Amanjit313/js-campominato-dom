@@ -1,0 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+  height: 10vh;
+}
+
+main{
+  height: 80vh;
+  background-color: green;
+}
+
+.contenitore{
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.number-box{
+  border: 2px solid white;
+  color: white;
+}
+
+.cella100{
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cella81{
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cella49{
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clicked{
+  background-color: rgba(0, 255, 255, 0.587);
+  color: white;
+}
+
+footer{
+  height: 10vh;
+}
