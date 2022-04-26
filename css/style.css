@@ -55,6 +55,10 @@ main{
   color: white;
 }
 
+.bombacostum{
+  background-color: red;
+}
+
 footer{
   height: 10vh;
 }
