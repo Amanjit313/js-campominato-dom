@@ -8,6 +8,7 @@
 const main = document.querySelector("main");
 document.getElementById("gioca").addEventListener("click", play);
 const bombaNumeri = 16;
+const bombe = [];
 
 // Imposto le varie difficoltà alle option in modo tale che io nella prossima funziona possa stampare tot celle indicate dalle const, ps il value deve combaciare a 0-1-2 per andare
 function play() {
@@ -16,11 +17,11 @@ function play() {
   console.log(difficoltà);
   const grigliedifficoltà = [100, 81, 49];
   const numeriCelle = grigliedifficoltà[difficoltà];
-
-  const bombe = bombeGeneratore(numeriCelle);
+  
+  bombeGeneratore(numeriCelle);
 
   console.log(numeriCelle);
-
+  
   zonagioco(numeriCelle);
 }
 
@@ -48,36 +49,37 @@ function zonagioco(numeriCelle) {
 // Aggiungo la distinzione della cella cliccata
 function numberBoxClicked() {
   this.classList.add("clicked");
+  
+  console.log(this.innerText);
 
-/*   if(!bomba.includes(number)){
-    this.classList.add("clicked");
+  let number = parseInt(this.innerText);
+  console.log(bombe);
+  if( !bombe.includes(number) ){
     console.log("Sei salvo", number);
   }else{
+    this.classList.add("bombacostum");
     fineGioco(number);
-  } */
+  }
 
 }
 
-/* function fineGioco(el){
+function fineGioco(){
   console.log("Fine");
-  el.classList.add("bombacostum");
-} */
+}
 
 // Ciclo per generare le bombe 
 function bombeGeneratore(numeriCelle) {
-  const bombeGenerate = [];
 
-  while(bombeGenerate.length < bombaNumeri){
+  while(bombe.length < bombaNumeri){
     const bomba = generateRandomInt(1, numeriCelle);
     
     console.log("bomba", bomba);
     // Facendo così non faccio ripetere le stesse bombe
-    if(!bombeGenerate.includes(bomba)){
-      bombeGenerate.push(bomba);
+    if(!bombe.includes(bomba)){
+      bombe.push(bomba);
     }
   }
 
-  return bombeGenerate;
 }
 
 function reset() {
@@ -87,5 +89,4 @@ function reset() {
 function generateRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 
