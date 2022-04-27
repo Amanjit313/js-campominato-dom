@@ -11,6 +11,7 @@ header{
 main{
   height: 80vh;
   background-color: green;
+  position: relative;
 }
 
 .contenitore{
@@ -19,6 +20,12 @@ main{
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+}
+
+.endgame{
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .number-box{

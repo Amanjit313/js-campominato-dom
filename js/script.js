@@ -9,6 +9,7 @@ const main = document.querySelector("main");
 document.getElementById("gioca").addEventListener("click", play);
 const bombaNumeri = 16;
 const bombe = [];
+let score = 0;
 
 // Imposto le varie difficoltà alle option in modo tale che io nella prossima funziona possa stampare tot celle indicate dalle const, ps il value deve combaciare a 0-1-2 per andare
 function play() {
@@ -56,15 +57,22 @@ function numberBoxClicked() {
   console.log(bombe);
   if( !bombe.includes(number) ){
     console.log("Sei salvo", number);
+    score++;
   }else{
     this.classList.add("bombacostum");
     fineGioco(number);
   }
-
+  
 }
 
+// Se trovo una bomba mi si ferma il gioco stampando un altro main sopra in modo tale da non poter interagire più (non mi andranno nemmeno gli eventlistener)
 function fineGioco(){
   console.log("Fine");
+  const coperta = document.createElement("div");
+  coperta.classList.add(".endgame");
+  coperta.innerHTML = `Hai fatto ${score}!`
+  main.append(coperta);
+  main.innerHTML += ``;
 }
 
 // Ciclo per generare le bombe 
@@ -84,6 +92,7 @@ function bombeGeneratore(numeriCelle) {
 
 function reset() {
   main.innerHTML = "";
+  score = 0;
 }
 
 function generateRandomInt(min, max) {
